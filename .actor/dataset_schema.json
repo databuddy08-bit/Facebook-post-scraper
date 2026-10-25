@@ -1,0 +1,369 @@
+{
+    "actorSpecification": 1,
+    "fields": {},
+    "views": {
+        "overview": {
+            "title": "Overview",
+            "transformation": {
+                "fields": [
+                    "status",
+                    "postType",
+                    "pageName",
+                    "url",
+                    "time",
+                    "text",
+                    "likes",
+                    "comments",
+                    "shares",
+                    "viewsCount",
+                    "engagementTotal",
+                    "engagementRatePercent",
+                    "pageFollowers",
+                    "reactionsBreakdown",
+                    "media",
+                    "link",
+                    "linkTitle",
+                    "hashtags",
+                    "mentions",
+                    "topComments",
+                    "videoTitle",
+                    "videoDurationSec",
+                    "videoUrl",
+                    "transcript",
+                    "transcriptSource",
+                    "transcriptError",
+                    "sharedPost",
+                    "matchedKeywords",
+                    "user",
+                    "collaborators",
+                    "postId",
+                    "facebookId",
+                    "pageAdLibrary",
+                    "facebookUrl",
+                    "inputUrl",
+                    "error",
+                    "fixHint",
+                    "scrapedAt"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "status": {
+                        "label": "Status",
+                        "format": "text"
+                    },
+                    "postType": {
+                        "label": "Type",
+                        "format": "text"
+                    },
+                    "pageName": {
+                        "label": "Page",
+                        "format": "text"
+                    },
+                    "url": {
+                        "label": "Post URL",
+                        "format": "link"
+                    },
+                    "time": {
+                        "label": "Time",
+                        "format": "date"
+                    },
+                    "text": {
+                        "label": "Text",
+                        "format": "text"
+                    },
+                    "likes": {
+                        "label": "Reactions",
+                        "format": "number"
+                    },
+                    "comments": {
+                        "label": "Comments",
+                        "format": "number"
+                    },
+                    "shares": {
+                        "label": "Shares",
+                        "format": "number"
+                    },
+                    "viewsCount": {
+                        "label": "Views",
+                        "format": "number"
+                    },
+                    "engagementTotal": {
+                        "label": "Engagement",
+                        "format": "number"
+                    },
+                    "engagementRatePercent": {
+                        "label": "Engagement rate %",
+                        "format": "number"
+                    },
+                    "pageFollowers": {
+                        "label": "Page followers",
+                        "format": "number"
+                    },
+                    "reactionsBreakdown": {
+                        "label": "Reactions breakdown",
+                        "format": "object"
+                    },
+                    "media": {
+                        "label": "Media",
+                        "format": "array"
+                    },
+                    "link": {
+                        "label": "Link",
+                        "format": "link"
+                    },
+                    "linkTitle": {
+                        "label": "Link title",
+                        "format": "text"
+                    },
+                    "hashtags": {
+                        "label": "Hashtags",
+                        "format": "array"
+                    },
+                    "mentions": {
+                        "label": "Mentions",
+                        "format": "array"
+                    },
+                    "topComments": {
+                        "label": "Top comments",
+                        "format": "array"
+                    },
+                    "videoTitle": {
+                        "label": "Video title",
+                        "format": "text"
+                    },
+                    "videoDurationSec": {
+                        "label": "Video length (s)",
+                        "format": "number"
+                    },
+                    "videoUrl": {
+                        "label": "Video file",
+                        "format": "link"
+                    },
+                    "transcript": {
+                        "label": "Transcript",
+                        "format": "text"
+                    },
+                    "transcriptSource": {
+                        "label": "Transcript source",
+                        "format": "text"
+                    },
+                    "transcriptError": {
+                        "label": "Transcript note",
+                        "format": "text"
+                    },
+                    "sharedPost": {
+                        "label": "Shared post",
+                        "format": "object"
+                    },
+                    "matchedKeywords": {
+                        "label": "Matched keywords",
+                        "format": "array"
+                    },
+                    "user": {
+                        "label": "Author",
+                        "format": "object"
+                    },
+                    "collaborators": {
+                        "label": "Collaborators",
+                        "format": "array"
+                    },
+                    "postId": {
+                        "label": "Post ID",
+                        "format": "text"
+                    },
+                    "facebookId": {
+                        "label": "Page ID",
+                        "format": "text"
+                    },
+                    "pageAdLibrary": {
+                        "label": "Ad Library",
+                        "format": "object"
+                    },
+                    "facebookUrl": {
+                        "label": "Page URL",
+                        "format": "link"
+                    },
+                    "inputUrl": {
+                        "label": "Input",
+                        "format": "text"
+                    },
+                    "error": {
+                        "label": "Error",
+                        "format": "text"
+                    },
+                    "fixHint": {
+                        "label": "How to fix",
+                        "format": "text"
+                    },
+                    "scrapedAt": {
+                        "label": "Scraped at",
+                        "format": "date"
+                    }
+                }
+            }
+        },
+        "engagement": {
+            "title": "Engagement",
+            "transformation": {
+                "fields": [
+                    "pageName",
+                    "url",
+                    "time",
+                    "postType",
+                    "likes",
+                    "comments",
+                    "shares",
+                    "viewsCount",
+                    "engagementTotal",
+                    "engagementRatePercent",
+                    "reactionsBreakdown"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "pageName": {
+                        "label": "Page",
+                        "format": "text"
+                    },
+                    "url": {
+                        "label": "Post URL",
+                        "format": "link"
+                    },
+                    "time": {
+                        "label": "Time",
+                        "format": "date"
+                    },
+                    "postType": {
+                        "label": "Type",
+                        "format": "text"
+                    },
+                    "likes": {
+                        "label": "Reactions",
+                        "format": "number"
+                    },
+                    "comments": {
+                        "label": "Comments",
+                        "format": "number"
+                    },
+                    "shares": {
+                        "label": "Shares",
+                        "format": "number"
+                    },
+                    "viewsCount": {
+                        "label": "Views",
+                        "format": "number"
+                    },
+                    "engagementTotal": {
+                        "label": "Engagement",
+                        "format": "number"
+                    },
+                    "engagementRatePercent": {
+                        "label": "Engagement rate %",
+                        "format": "number"
+                    },
+                    "reactionsBreakdown": {
+                        "label": "Reactions breakdown",
+                        "format": "object"
+                    }
+                }
+            }
+        },
+        "videos": {
+            "title": "Videos & transcripts",
+            "transformation": {
+                "fields": [
+                    "pageName",
+                    "url",
+                    "time",
+                    "videoTitle",
+                    "viewsCount",
+                    "videoDurationSec",
+                    "videoUrl",
+                    "transcriptSource",
+                    "transcript",
+                    "transcriptError"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "pageName": {
+                        "label": "Page",
+                        "format": "text"
+                    },
+                    "url": {
+                        "label": "Post URL",
+                        "format": "link"
+                    },
+                    "time": {
+                        "label": "Time",
+                        "format": "date"
+                    },
+                    "videoTitle": {
+                        "label": "Video title",
+                        "format": "text"
+                    },
+                    "viewsCount": {
+                        "label": "Views",
+                        "format": "number"
+                    },
+                    "videoDurationSec": {
+                        "label": "Video length (s)",
+                        "format": "number"
+                    },
+                    "videoUrl": {
+                        "label": "Video file",
+                        "format": "link"
+                    },
+                    "transcriptSource": {
+                        "label": "Transcript source",
+                        "format": "text"
+                    },
+                    "transcript": {
+                        "label": "Transcript",
+                        "format": "text"
+                    },
+                    "transcriptError": {
+                        "label": "Transcript note",
+                        "format": "text"
+                    }
+                }
+            }
+        },
+        "failed": {
+            "title": "Inputs without posts",
+            "transformation": {
+                "fields": [
+                    "status",
+                    "inputUrl",
+                    "error",
+                    "fixHint"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "status": {
+                        "label": "Status",
+                        "format": "text"
+                    },
+                    "inputUrl": {
+                        "label": "Input",
+                        "format": "text"
+                    },
+                    "error": {
+                        "label": "Error",
+                        "format": "text"
+                    },
+                    "fixHint": {
+                        "label": "How to fix",
+                        "format": "text"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+node_modules
+storage
+.DS_Store
+.env
+*.log
+apify_storage
+storage-test

@@ -1,0 +1,15 @@
+{
+    "actorSpecification": 1,
+    "name": "facebook-posts-pro",
+    "title": "Facebook Posts Scraper Pro \u2014 Engagement, Comments, Views & Video Transcripts",
+    "description": "Posts from public Facebook pages and profiles plus single posts, videos and reels: text, reactions breakdown, comments, shares, views, media, top comments, hashtags, engagement rate, filters and video transcripts.",
+    "version": "1.0",
+    "buildTag": "latest",
+    "input": "./input_schema.json",
+    "output": "./output_schema.json",
+    "storages": {
+        "dataset": "./dataset_schema.json"
+    },
+    "dockerfile": "../Dockerfile",
+    "readme": "../README.md"
+}

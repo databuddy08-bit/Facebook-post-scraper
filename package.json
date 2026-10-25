@@ -1,0 +1,26 @@
+{
+    "name": "facebook-posts-pro",
+    "version": "1.0.0",
+    "description": "Facebook posts from pages and profiles: text, reactions breakdown, comments, shares, views, media, top comments, video transcripts, filters and engagement metrics.",
+    "type": "module",
+    "main": "src/main.js",
+    "engines": {
+        "node": ">=20"
+    },
+    "scripts": {
+        "start": "node src/main.js",
+        "test": "node --test test/unit.test.js",
+        "test:e2e": "node test/e2e.js",
+        "validate-schema": "node test/validate-schemas.js"
+    },
+    "dependencies": {
+        "apify": "^3.7.2",
+        "got-scraping": "^4.2.2",
+        "tough-cookie": "^5.1.2"
+    },
+    "devDependencies": {
+        "@apify/input_schema": "^3.29.2",
+        "ajv": "^8.17.1"
+    },
+    "license": "UNLICENSED"
+}

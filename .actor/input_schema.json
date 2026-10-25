@@ -1,0 +1,200 @@
+{
+    "title": "Facebook Posts Pro input",
+    "description": "Scrape posts from public Facebook pages and profiles, or single posts, videos and reels.",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "startUrls": {
+            "title": "Facebook URLs",
+            "type": "array",
+            "editor": "requestListSources",
+            "sectionCaption": "What to scrape",
+            "description": "Public pages and profiles (facebook.com/name, profile.php?id=…, /people/…), or single posts, photos, videos, reels and share links. Pages return their latest posts; post/video URLs return that one post.",
+            "prefill": [
+                {
+                    "url": "https://www.facebook.com/cern"
+                },
+                {
+                    "url": "https://www.facebook.com/NASA"
+                }
+            ]
+        },
+        "resultsLimit": {
+            "title": "Max posts per page",
+            "type": "integer",
+            "minimum": 1,
+            "default": 20,
+            "description": "How many posts to save from each page or profile (newest first). Filtered-out posts do not count."
+        },
+        "onlyPostsNewerThan": {
+            "title": "Only posts newer than",
+            "type": "string",
+            "editor": "textfield",
+            "default": "",
+            "sectionCaption": "Filters (filtered posts are never charged)",
+            "description": "A date (2025-01-31), a date-time, or a period (\"7 days\", \"3 months\"). Paging stops once posts get older than this — so it also saves time and money."
+        },
+        "onlyPostsOlderThan": {
+            "title": "Only posts older than",
+            "type": "string",
+            "editor": "textfield",
+            "default": "",
+            "description": "A date or a period (\"2 days\"). Use together with \"newer than\" for a date window."
+        },
+        "postTypes": {
+            "title": "Post types",
+            "type": "array",
+            "editor": "select",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "photo",
+                    "album",
+                    "video",
+                    "reel",
+                    "link",
+                    "text",
+                    "shared"
+                ],
+                "enumTitles": [
+                    "Photo",
+                    "Album (several photos)",
+                    "Video",
+                    "Reel",
+                    "Link",
+                    "Text only",
+                    "Shared post"
+                ]
+            },
+            "default": [],
+            "description": "Keep only these kinds of posts. Empty = all types."
+        },
+        "keywords": {
+            "title": "Only posts mentioning",
+            "type": "array",
+            "editor": "stringList",
+            "default": [],
+            "description": "Keep posts whose text, link title or shared post contains any of these words or phrases (whole words, any case). Matches are listed in \"matchedKeywords\"."
+        },
+        "minReactions": {
+            "title": "Min reactions",
+            "type": "integer",
+            "minimum": 0,
+            "default": 0,
+            "description": "Skip posts with fewer reactions. 0 = off."
+        },
+        "minComments": {
+            "title": "Min comments",
+            "type": "integer",
+            "minimum": 0,
+            "default": 0,
+            "description": "Skip posts with fewer comments. 0 = off."
+        },
+        "topCommentsPerPost": {
+            "title": "Top comments per post",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 50,
+            "default": 5,
+            "sectionCaption": "Extra data",
+            "description": "Top comments Facebook shows with each post (text, author, time, likes) — included at no extra cost. 0 = leave out."
+        },
+        "fetchVideoDetails": {
+            "title": "Video details (views, title, duration, video URL)",
+            "type": "boolean",
+            "default": true,
+            "description": "For video and reel posts, open the video page once to add views, title, duration and the video file URL."
+        },
+        "includeVideoTranscript": {
+            "title": "Video transcripts",
+            "type": "boolean",
+            "default": false,
+            "description": "Add the spoken text of video posts: from the creator's captions when available, otherwise by AI if you add your own key below. Charged per transcript."
+        },
+        "aiProvider": {
+            "title": "AI transcription for videos without captions",
+            "type": "string",
+            "editor": "select",
+            "enum": [
+                "none",
+                "groq",
+                "openai"
+            ],
+            "enumTitles": [
+                "Off",
+                "Groq Whisper (fast, cheapest)",
+                "OpenAI Whisper"
+            ],
+            "default": "none",
+            "description": "Used only with \"Video transcripts\". You pay the AI provider directly (Groq ≈ $0.04 / audio hour, OpenAI ≈ $0.36 / audio hour)."
+        },
+        "aiApiKey": {
+            "title": "AI provider API key",
+            "type": "string",
+            "editor": "textfield",
+            "isSecret": true,
+            "description": "Your Groq or OpenAI API key. Stored encrypted by Apify and only sent to the provider you chose."
+        },
+        "aiMaxMinutes": {
+            "title": "Max video length for AI (minutes)",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 240,
+            "default": 20,
+            "description": "Longer videos without captions are not sent to AI. Video files above 25 MB are skipped too."
+        },
+        "maxResults": {
+            "title": "Max posts in total",
+            "type": "integer",
+            "minimum": 0,
+            "default": 0,
+            "sectionCaption": "Run limits",
+            "description": "Stop after this many saved (and charged) posts across all pages. 0 = no limit."
+        },
+        "includeFailedInputs": {
+            "title": "Show inputs without posts",
+            "type": "boolean",
+            "default": true,
+            "description": "Adds a free row (status = not_found / no_timeline / blocked / invalid_input / no_posts …) with the reason and how to fix it."
+        },
+        "skipPreviouslyScraped": {
+            "title": "Skip posts saved in previous runs",
+            "type": "boolean",
+            "default": false,
+            "description": "Remembers saved post IDs in a named key-value store — ideal for scheduled page monitoring."
+        },
+        "dedupeStoreName": {
+            "title": "Memory store name",
+            "type": "string",
+            "editor": "textfield",
+            "pattern": "^[a-z0-9-]{1,63}$",
+            "default": "facebook-posts-pro-seen",
+            "description": "Key-value store used by \"Skip posts saved in previous runs\". Lowercase letters, numbers and hyphens."
+        },
+        "proxyFallback": {
+            "title": "Automatic proxy fallback",
+            "type": "boolean",
+            "default": true,
+            "sectionCaption": "Proxy",
+            "description": "If Facebook keeps sending the chosen proxy to its login page, switch automatically to Apify residential, then datacenter proxy, then the server IP."
+        },
+        "proxyConfiguration": {
+            "title": "Proxy configuration",
+            "type": "object",
+            "editor": "proxy",
+            "prefill": {
+                "useApifyProxy": true,
+                "apifyProxyGroups": [
+                    "RESIDENTIAL"
+                ]
+            },
+            "default": {
+                "useApifyProxy": true,
+                "apifyProxyGroups": [
+                    "RESIDENTIAL"
+                ]
+            },
+            "description": "Facebook sends datacenter IPs to its login page and rate-limits them. Residential works best."
+        }
+    }
+}

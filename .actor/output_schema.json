@@ -1,0 +1,21 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "Facebook Posts Pro output",
+    "properties": {
+        "posts": {
+            "type": "string",
+            "title": "Posts (Overview)",
+            "template": "{{links.apiDefaultDatasetUrl}}/items?view=overview"
+        },
+        "failed": {
+            "type": "string",
+            "title": "Inputs without posts (free)",
+            "template": "{{links.apiDefaultDatasetUrl}}/items?view=failed"
+        },
+        "runSummary": {
+            "type": "string",
+            "title": "Run summary",
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+        }
+    }
+}
